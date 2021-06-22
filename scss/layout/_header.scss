@@ -1,0 +1,46 @@
+@use '../abstracts/variables';
+@use '../abstracts/mixins';
+
+.header {
+  padding: 4rem 2rem;
+  color: variables.$color-primary;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+
+  @include mixins.respond(tab-land) {
+    flex-wrap: nowrap;
+  }
+
+  &__logo {
+    font-size: 4rem;
+    font-weight: 700;
+  }
+
+  &__title {
+    font-size: 1.4rem;
+    font-weight: 400;
+    @include mixins.respond(tab-land) {
+      order: 2;
+      font-size: 3.6rem;
+    }
+  }
+
+  &__tags {
+    margin: 4rem 2rem 0;
+    flex-basis: 100%;
+
+    @include mixins.respond(tab-land) {
+      order: 1;
+      flex-basis: auto;
+    }
+
+    .tags {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+  }
+}

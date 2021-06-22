@@ -8,3 +8,13 @@
 @use 'base/base';
 @use 'base/reset';
 @use 'base/typography';
+
+// Components
+@use 'components/tags';
+@use 'components/photographer';
+
+// Layout
+@use 'layout/header';
+
+// Pages
+@use 'pages/home';

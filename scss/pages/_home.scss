@@ -1,0 +1,22 @@
+@use '../abstracts/mixins';
+
+.main {
+  padding: 0 2rem;
+}
+
+.photographers {
+  display: flex;
+  flex-direction: column;
+
+  @include mixins.respond(tab-land) {
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .photographer {
+    @include mixins.respond(tab-land) {
+      flex-basis: 33%;
+    }
+  }
+}

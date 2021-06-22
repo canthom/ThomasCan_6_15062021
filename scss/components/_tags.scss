@@ -1,0 +1,16 @@
+@use '../abstracts/variables';
+
+.tags {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: variables.$color-primary;
+  display: flex;
+
+  &__item {
+    border: 0.5px variables.$color-grey-light solid;
+    border-radius: 11px;
+
+    padding: 3px 5px;
+    margin: 3px 2.5px;
+  }
+}

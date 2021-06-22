@@ -1,0 +1,22 @@
+@use '../abstracts/mixins';
+
+html {
+  // 1rem = 10px
+  font-size: 62.5%;
+}
+
+body {
+  box-sizing: border-box;
+  line-height: 1.5;
+  font-family: 'DM Sans', sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul,
+ol {
+  list-style: none;
+}

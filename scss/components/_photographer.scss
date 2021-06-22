@@ -1,0 +1,36 @@
+@use '../abstracts/variables';
+@use '../abstracts/mixins';
+
+.photographer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 3rem;
+
+  &__img {
+    height: 20rem;
+    width: 20rem;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.25);
+  }
+
+  &__caption {
+    font-size: 3.6rem;
+    color: variables.$color-secondary;
+  }
+
+  &__location {
+    color: variables.$color-primary;
+    font-size: 1.3rem;
+  }
+
+  &__quote {
+    font-size: 1rem;
+  }
+
+  &__price {
+    color: variables.$color-grey-dark;
+    font-size: 0.9rem;
+  }
+}
