@@ -1,0 +1,39 @@
+@use '../abstracts/variables';
+
+.photographer-header {
+  display: flex;
+  position: relative;
+
+  &__title {
+    font-size: 3.6rem;
+    font-weight: 400;
+    color: variables.$color-secondary;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 6px;
+  }
+
+  &__location {
+    color: variables.$color-primary;
+    font-size: 1.3rem;
+  }
+
+  &__quote {
+    color: variables.$color-grey-darker;
+    font-size: 1.3rem;
+  }
+
+  &__img {
+    height: 10rem;
+    width: 10rem;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.25);
+    position: absolute;
+    right: 5%;
+    top: 12.2%;
+  }
+}

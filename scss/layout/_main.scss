@@ -1,0 +1,14 @@
+@use '../abstracts/mixins';
+
+.main {
+  @include mixins.respond(tab-land) {
+    &--page {
+      width: 120rem;
+      margin: 0 auto;
+    }
+  }
+
+  &--page {
+    position: relative;
+  }
+}

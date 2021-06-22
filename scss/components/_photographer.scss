@@ -7,7 +7,13 @@
   align-items: center;
   margin-bottom: 3rem;
 
+  &__link {
+    display: flex;
+    flex-direction: column;
+  }
+
   &__img {
+    margin: 0 auto;
     height: 20rem;
     width: 20rem;
     object-fit: cover;
@@ -32,5 +38,12 @@
   &__price {
     color: variables.$color-grey-dark;
     font-size: 0.9rem;
+  }
+
+  &--page {
+    width: 120rem;
+    margin: 0 auto;
+    background-color: variables.$color-grey-lighter;
+    display: grid;
   }
 }

@@ -1,0 +1,16 @@
+@use '../abstracts/variables';
+
+.btn {
+  font-weight: 700;
+  font-size: 1.8rem;
+  color: variables.$color-white;
+  text-align: center;
+  background-color: variables.$color-primary;
+  border-radius: 5px;
+  padding: 0.5rem 2rem;
+
+  &--cta {
+    position: fixed;
+    bottom: 3rem;
+  }
+}

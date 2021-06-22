@@ -2,25 +2,25 @@
 
 .main {
   padding: 0 2rem;
-}
 
-.photographers {
-  display: flex;
-  flex-direction: column;
+  &--home {
+    display: flex;
+    flex-direction: column;
 
-  @include mixins.respond(tab-port) {
-    flex-direction: row;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
-  .photographer {
     @include mixins.respond(tab-port) {
-      flex-basis: 50%;
+      flex-direction: row;
+      justify-content: center;
+      flex-wrap: wrap;
     }
 
-    @include mixins.respond(tab-land) {
-      flex-basis: 33%;
+    figure {
+      @include mixins.respond(tab-port) {
+        flex-basis: 50%;
+      }
+
+      @include mixins.respond(tab-land) {
+        flex-basis: 33%;
+      }
     }
   }
 }

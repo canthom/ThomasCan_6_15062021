@@ -10,11 +10,15 @@
 @use 'base/typography';
 
 // Components
-@use 'components/tags';
+@use 'components/button';
 @use 'components/photographer';
+@use 'components/tags';
+@use 'components/work';
 
 // Layout
 @use 'layout/header';
+@use 'layout/main';
 
 // Pages
 @use 'pages/home';
+@use 'pages/page';

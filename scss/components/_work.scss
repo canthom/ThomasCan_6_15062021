@@ -1,0 +1,18 @@
+@use '../abstracts/variables';
+
+.work {
+  padding-top: 4rem;
+
+  &__img {
+    height: 19rem;
+    width: 100%;
+    border-radius: 5px;
+    object-fit: cover;
+    object-position: 50% 12%;
+  }
+
+  &__caption {
+    color: variables.$color-primary;
+    font-size: 1.4rem;
+  }
+}
