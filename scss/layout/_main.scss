@@ -2,8 +2,9 @@
 
 .main {
   @include mixins.respond(tab-land) {
+    max-width: 120rem;
     &--page {
-      width: 120rem;
+      max-width: 120rem;
       margin: 0 auto;
     }
   }

@@ -1,4 +1,5 @@
 @use '../abstracts/variables';
+@use '../abstracts/mixins';
 
 .btn {
   font-weight: 700;
@@ -8,9 +9,29 @@
   background-color: variables.$color-primary;
   border-radius: 5px;
   padding: 0.5rem 2rem;
+  cursor: pointer;
+  transition: all 0.2s;
 
   &--cta {
     position: fixed;
     bottom: 3rem;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: variables.$color-secondary;
+    color: variables.$color-black;
+  }
+
+  &--main {
+    display: none;
+
+    @include mixins.respond(tab-land) {
+      display: block;
+      position: fixed;
+      top: 6px;
+      left: 50%;
+      margin-left: -100px;
+    }
   }
 }

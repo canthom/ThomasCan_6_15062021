@@ -9,9 +9,15 @@
   &__item {
     border: 0.5px variables.$color-grey-light solid;
     border-radius: 11px;
-
     padding: 3px 5px;
     margin: 3px 2.5px;
+    transition: all 0.4s;
+
+    &:focus,
+    &:hover {
+      background-color: variables.$color-primary;
+      color: variables.$color-white;
+    }
   }
 
   &--page {

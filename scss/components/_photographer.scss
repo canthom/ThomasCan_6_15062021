@@ -10,6 +10,7 @@
   &__link {
     display: flex;
     flex-direction: column;
+    cursor: pointer;
   }
 
   &__img {
@@ -19,11 +20,6 @@
     object-fit: cover;
     border-radius: 50%;
     box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.25);
-  }
-
-  &__caption {
-    font-size: 3.6rem;
-    color: variables.$color-secondary;
   }
 
   &__location {
