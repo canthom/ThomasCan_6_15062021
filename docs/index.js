@@ -24,12 +24,15 @@ class Photographer {
       const span2 = document.createElement('span');
       const span3 = document.createElement('span');
       const ul = document.createElement('ul');
+      
 
       div.classList.add('photographer');
       // Link : Image & name
       link.classList.add('photographer__link');
+      link.setAttribute('href', '#');
       image.classList.add('photographer__img');
       image.setAttribute('src', `./img/Photographers ID Photos/`+this.portrait);
+      image.setAttribute('alt', this.name);
 
       h2.classList.add('heading-2', 'heading-2--home');
       h2.innerHTML = this.name;
@@ -46,6 +49,18 @@ class Photographer {
 
       // Tag List
       ul.classList.add('tags');
+      this.tags.forEach(element => {
+        const li = document.createElement('li');
+        const liLink = document.createElement('a');
+      
+        li.classList.add('tags__item');
+        liLink.classList.add('tags__link');
+        liLink.setAttribute('href', '#');
+        liLink.innerHTML = `#${element}`;
+
+        ul.append(li);
+        li.append(liLink);
+      });
 
       // Append 
       link.append(image, h2);
@@ -64,8 +79,6 @@ fetch('FishEyeData.json').then( (data) => {
     const photographer = new Photographer(photographerData.id, photographerData.portrait, photographerData.name, photographerData.city, photographerData.country, photographerData.tagline, photographerData.price, photographerData.tags);
     photographer.render();
   }
-
-  console.log(result);
 }).catch( (err) => {
   alert(err);
 });
