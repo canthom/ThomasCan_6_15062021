@@ -29,7 +29,7 @@ class Photographer {
       div.classList.add('photographer');
       // Link : Image & name
       link.classList.add('photographer__link');
-      link.setAttribute('href', '#');
+      link.setAttribute('href', `#${this.name}`);
       image.classList.add('photographer__img');
       image.setAttribute('src', `./img/Photographers ID Photos/`+this.portrait);
       image.setAttribute('alt', this.name);
@@ -82,3 +82,8 @@ fetch('FishEyeData.json').then( (data) => {
 }).catch( (err) => {
   alert(err);
 });
+
+
+// URL
+const fishEye = new URL('https://canthom.github.io/ThomasCan_6_15062021/');
+console.log(fishEye);

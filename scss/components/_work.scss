@@ -1,18 +1,96 @@
 @use '../abstracts/variables';
+@use '../abstracts/mixins';
+
+.order {
+  display: none;
+
+  @include mixins.respond(tab-land) {
+    display: contents;
+  }
+
+  font-size: 1.8rem;
+  font-weight: 700;
+
+  &__label {
+    margin-right: 2.5rem;
+  }
+
+  &__select {
+    font-size: inherit;
+    font-weight: inherit;
+
+    background-color: variables.$color-primary;
+    color: variables.$color-white;
+    padding: 1rem;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+  }
+}
+
+.work-container {
+  margin-top: 6rem;
+  display: flex;
+  flex-direction: column;
+
+  @include mixins.respond(tab-port) {
+    justify-content: space-between;
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+}
 
 .work {
-  padding-top: 4rem;
+  flex-basis: 30%;
+  color: variables.$color-primary;
+  margin-bottom: 1rem;
+
+  @include mixins.respond(tab-land) {
+    margin-bottom: 3rem;
+  }
 
   &__img {
-    height: 19rem;
-    width: 100%;
     border-radius: 5px;
+    width: 100%;
+    height: 19rem;
     object-fit: cover;
-    object-position: 50% 12%;
+    object-position: 25% 25%;
+
+    @include mixins.respond(tab-port) {
+      width: 35rem;
+      height: 30rem;
+      object-fit: cover;
+    }
   }
 
   &__caption {
-    color: variables.$color-primary;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     font-size: 1.4rem;
+
+    @include mixins.respond(tab-land) {
+      font-size: 2.4rem;
+    }
+  }
+
+  &__likes {
+    font-weight: 700;
+  }
+}
+
+.cta {
+  position: fixed;
+  bottom: 0;
+  right: 4rem;
+  display: inline-block;
+  background-color: variables.$color-secondary-light;
+  padding: 2rem 3rem;
+  font-weight: 500;
+  font-size: 2.4rem;
+  border-radius: 5px 5px 0 0;
+
+  &__likes {
+    margin-right: 7rem;
   }
 }

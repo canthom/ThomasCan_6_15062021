@@ -1,8 +1,28 @@
 @use '../abstracts/variables';
+@use '../abstracts/mixins';
 
 .photographer-header {
+  // A SUPPRIMER
+  margin-bottom: 5rem;
+  // A SUPPRIMER
+
+  background-color: variables.$color-grey-lighter;
   display: flex;
-  position: relative;
+  align-items: center;
+  width: 100%;
+
+  @include mixins.respond(tab-land) {
+    justify-content: space-between;
+    padding: 5rem;
+  }
+
+  &__profile {
+    flex: 2;
+
+    @include mixins.respond(tab-land) {
+      flex: none;
+    }
+  }
 
   &__title {
     font-size: 3.6rem;
@@ -27,13 +47,17 @@
   }
 
   &__img {
+    flex: 1;
     height: 10rem;
     width: 10rem;
     object-fit: cover;
     border-radius: 50%;
     box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.25);
-    position: absolute;
-    right: 5%;
-    top: 12.2%;
+
+    @include mixins.respond(tab-port) {
+      flex: none;
+      height: 20rem;
+      width: 20rem;
+    }
   }
 }

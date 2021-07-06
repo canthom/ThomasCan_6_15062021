@@ -11,10 +11,32 @@
   padding: 0.5rem 2rem;
   cursor: pointer;
   transition: all 0.2s;
+  border: none;
 
-  &--cta {
-    position: fixed;
-    bottom: 3rem;
+  &--form {
+    padding: 2.3rem 5rem;
+  }
+
+  &-cta {
+    &--mobile {
+      display: none;
+      @include mixins.respond(tab-land) {
+        display: none;
+      }
+    }
+
+    &--desktop {
+      padding: 1rem 2rem;
+
+      @include mixins.respond(phone) {
+        display: none;
+      }
+
+      @include mixins.respond(tab-land) {
+        display: block;
+        flex-basis: fill;
+      }
+    }
   }
 
   &:hover,

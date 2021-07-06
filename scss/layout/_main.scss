@@ -1,15 +1,13 @@
 @use '../abstracts/mixins';
 
 .main {
+  width: 100%;
+
   @include mixins.respond(tab-land) {
-    max-width: 140rem;
+    max-width: 120rem;
     &--page {
-      max-width: 140rem;
+      max-width: 120rem;
       margin: 0 auto;
     }
-  }
-
-  &--page {
-    position: relative;
   }
 }

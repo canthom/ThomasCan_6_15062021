@@ -3,26 +3,35 @@
 
 <head>
   <!-- Meta -->
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- Links -->
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./css/main.min.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="./css/main.min.css" />
+  <script type="module" src="./page.js"></script>
 
   <!-- Titre -->
   <title>Fisheye</title>
 </head>
 
 <body>
+  <a href="#" class="btn btn-cta--mobile">Contactez-moi</a>
+
   <header class="header header--page">
-    <div class="header__logo"><a href="index.html">Fisheye</a></div>
+    <a href="index.html">
+      <img src="./img/logo.svg" alt="Fisheye Home page" class="header__logo" />
+    </a>
   </header>
 
   <main class="main main--page">
-    <header class="photographer-header">
+
+    <!-- <header class="photographer-header">
       <div class="photographer-header__profile">
         <h1 class="heading-1 photographer-header__title">Mimi Keel</h1>
         <div class="photographer-header__info">
@@ -33,25 +42,117 @@
           <li class="tags__item"><a href="#" class="tags__link">#portrait</a></li>
           <li class="tags__item"><a href="#" class="tags__link">#events</a></li>
           <li class="tags__item"><a href="#" class="tags__link">#travel</a></li>
-          <!-- <li class="tags__item"><a href="#" class="tags__link">#animals</a></li> -->
+          <li class="tags__item"><a href="#" class="tags__link">#animals</a></li>
         </ul>
+        <a href="#" class="btn btn-cta--desktop">Contactez-moi</a>
       </div>
 
-      <img src="./img/Mimi/Portrait_Nora.jpg" alt="Photographie de Mimi Keel" class="photographer-header__img">
+    <img src="./img/Mimi/Portrait_Nora.jpg" alt="Photographie de Mimi Keel" class="photographer-header__img">
 
-    </header>
+    </header> -->
 
-    <section class="section-works">
-      <figure class="work">
-        <img src="./img/Mimi/Animals_Rainbow.jpg" alt="Photographie d'un oiseau" class="work__img">
-        <figcaption class="work__caption">
-          Arc-en-ciel
-        </figcaption>
-      </figure>
+    <section class="section-work">
+      <div class="order">
+        <label class="order__label" for="order-select">Trier par</label>
+        <select class="order__select" name="order" id="order-select">
+          <option value="popular">Popularité</option>
+          <option value="date">Date</option>
+          <option value="title">Titre</option>
+        </select>
+      </div>
+
+      <div class="work-container">
+        <figure class="work">
+          <img class="work__img" src="./img/Mimi/Animals_Rainbow.jpg" alt="Oiseau" />
+          <figcaption class="work__caption">
+            <span class="work__title">Arc-en-ciel</span>
+            <div class="work__likes">12 <i class="fas fa-heart"></i></div>
+          </figcaption>
+        </figure>
+
+        <figure class="work">
+          <img class="work__img" src="./img/Mimi/Travel_Lonesome.jpg" alt="Solitude" />
+          <figcaption class="work__caption">
+            <span class="work__title">Solitude</span>
+            <div class="work__likes">12 <i class="fas fa-heart"></i></div>
+          </figcaption>
+        </figure>
+
+        <figure class="work">
+          <img class="work__img" src="./img/Mimi/Event_SeasideWedding.jpg" alt="Mariage" />
+          <figcaption class="work__caption">
+            <span class="work__title">Mariage à la mer</span>
+            <div class="work__likes">12 <i class="fas fa-heart"></i></div>
+          </figcaption>
+        </figure>
+
+        <figure class="work">
+          <img class="work__img" src="./img/Mimi/Portrait_Background.jpg" alt="Portrait" />
+          <figcaption class="work__caption">
+            <span class="work__title">Arc-en-ciel</span>
+            <div class="work__likes">12 <i class="fas fa-heart"></i></div>
+          </figcaption>
+        </figure>
+
+        <figure class="work">
+          <img class="work__img" src="./img/Mimi/Event_PintoWedding.jpg" alt="Amour" />
+          <figcaption class="work__caption">
+            <span class="work__title">Arc-en-ciel</span>
+            <div class="work__likes">12 <i class="fas fa-heart"></i></div>
+          </figcaption>
+        </figure>
+
+        <figure class="work">
+          <img class="work__img" src="./img/Mimi/Portrait_Wednesday.jpg" alt="Portrait" />
+          <figcaption class="work__caption">
+            <span class="work__title">Arc-en-ciel</span>
+            <div class="work__likes">12 <i class="fas fa-heart"></i></div>
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="cta">
+        <span class="cta__likes"> 297 081 <i class="fas fa-heart"></i> </span>
+        <span class="cta__prices"> 300€ / jour </span>
+      </div>
     </section>
-
-    <a href="#" class="btn btn--cta">Contactez-moi</a>
   </main>
+
+  <div class="modal-container">
+    <div class="modal">
+      <h1 class="heading-1 heading-1--form">
+        Contactez moi
+        <span>Mimi Keel</span>
+      </h1>
+      <span class="modal__close"></span>
+      <div class="modal__body">
+
+        <form class="form">
+          <div class="form__data">
+            <label class="form__label" for="first">Prénom</label>
+            <input class="form__input" type="text" name="first" id="first" />
+          </div>
+
+          <div class="form__data">
+            <label class="form__label" for="last">Nom</label>
+            <input class="form__input" type="text" name="last" id="last" />
+          </div>
+
+          <div class="form__data">
+            <label class="form__label" for="email">Email</label>
+            <input class="form__input" type="email" name="email" id="email" />
+          </div>
+
+          <div class="form__data">
+            <label class="form__label" for="message">Votre message</label>
+            <textarea class="form__text" name="message" id="message" cols="30" rows="5"></textarea>
+          </div>
+
+          <input class="btn btn--form" type="submit" value="Envoyer" />
+        </form>
+      </div>
+    </div>
+  </div>
 </body>
 
 </html>

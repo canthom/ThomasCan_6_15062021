@@ -1,0 +1,90 @@
+@use '../abstracts/variables';
+
+.modal-container {
+  background-color: rgba(variables.$color-white, 0.4);
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+
+  display: none;
+  place-items: center;
+}
+
+.modal {
+  background-color: variables.$color-secondary-light;
+  width: 67rem;
+  padding: 1rem 0;
+  margin: 0 auto;
+  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.25);
+  position: relative;
+
+  &__close {
+    position: absolute;
+    right: 1rem;
+    top: 2rem;
+    width: 82px;
+    height: 82px;
+    opacity: 1;
+    cursor: pointer;
+    transform: scale(0.7);
+
+    &:before,
+    &:after {
+      position: absolute;
+      left: 15px;
+      content: ' ';
+      height: 83px;
+      width: 8px;
+      background-color: #fff;
+    }
+
+    &:before {
+      transform: rotate(45deg);
+    }
+
+    &:after {
+      transform: rotate(-45deg);
+    }
+  }
+}
+
+.form {
+  margin: 0 auto;
+  width: 90%;
+  font-size: 3.6rem;
+
+  &__data {
+    margin-bottom: 1rem;
+
+    // Messages d'Erreur
+    &[data-error]::after {
+      content: attr(data-error);
+      font-size: 2rem;
+      color: red;
+      display: block;
+      opacity: 0;
+    }
+
+    &[data-error-visible='true']::after {
+      opacity: 1;
+    }
+  }
+
+  &__label {
+    color: variables.$color-grey-darker;
+  }
+
+  &__input,
+  &__text {
+    display: block;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    outline: none;
+    font-size: 2rem;
+    padding: 2rem;
+  }
+}
