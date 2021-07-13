@@ -1,94 +1,41 @@
-// ES6 Classes
-class Photographer {
-  constructor(id, portrait, name, city, country, tagline, price, tags){
-    this.id = id;
-    this.portrait = portrait;
-    this.name = name;
-    this.city = city;
-    this.country = country;
-    this.tagline = tagline; 
-    this.price = price;
-    this.tags = tags;
-  }
+import{Photographer} from './js/class/Photographer.js';
+import{Image} from './js/class/Image.js';
+import{Video} from './js/class/Video.js';
 
-  // PROTOTYPES
-  // Création de la carte Photographe
-  render() {
-    const container = document.getElementsByTagName('main')[0];
-    if (container) {
-      const header = document.createElement('header');
-      const divProfile = document.createElement('div');
-      const divInfo = document.createElement('div');
-      const image = document.createElement('img');
-      const h1 = document.createElement('h1');
-      const span1 = document.createElement('span');
-      const span2 = document.createElement('span');
-      const ul = document.createElement('ul');
-      const btn = document.createElement('button');
-      const sectionWork = document.getElementsByClassName('section-work')[0];
-      
-
-      // Class List
-      header.classList.add('photographer-header');
-      divProfile.classList.add('photographer-header__profile');
-      h1.classList.add('heading-1', 'photographer-header__title');
-      divInfo.classList.add('photographer-header__info');
-      span1.classList.add('photographer-header__location');
-      span2.classList.add('photographer-header__quote');
-      image.classList.add('photographer-header__img');
-      btn.classList.add('btn', 'btn-cta--desktop');
-
-      // Attributes
-      image.setAttribute('src', `./img/Photographers ID Photos/`+this.portrait);
-      image.setAttribute('alt', this.name);
-
-
-      // INNER HTML
-      h1.innerHTML = this.name;
-      span1.innerHTML = this.city + ', ' + this.country;
-      span2.innerHTML = this.tagline;
-      btn.innerHTML = 'Contactez-moi';
-
-      // Tags
-      ul.classList.add('tags', 'tags--page');
-      this.tags.forEach(element => {
-        const li = document.createElement('li');
-        const liLink = document.createElement('a');
-      
-        li.classList.add('tags__item');
-        liLink.classList.add('tags__link');
-        liLink.setAttribute('href', '#');
-        liLink.innerHTML = `#${element}`;
-
-        ul.append(li);
-        li.append(liLink);
-      });
-
-      // Append 
-      container.insertBefore(header, sectionWork);
-      header.append(divProfile, image);
-      divProfile.append(h1);
-      divProfile.append(divInfo);
-      divProfile.append(ul);
-      divInfo.append(span1);
-      divInfo.append(span2);
-      divProfile.append(btn);
-    }
-  }
-}
+// URL
+const url = new URL(window.location);
+const searchParams = new URLSearchParams(url.search);
+const id = searchParams.get('id');
 
 // Récupérer les données depuis le fichier JSON
 fetch('FishEyeData.json').then( (data) => {
   return data.json();
 }).then( (result) => {
+  const filteredPhotographers = result.photographers.filter(photographerData => photographerData.id === Number(id));
+  const photographer = new Photographer(filteredPhotographers[0].id, filteredPhotographers[0].portrait, filteredPhotographers[0].name, filteredPhotographers[0].city,filteredPhotographers[0].country, filteredPhotographers[0].tagline, filteredPhotographers[0].price, filteredPhotographers[0].tags);
+  photographer.renderPortfolio();
 
-  for (let photographerData of result.photographers) {
-    const photographer = new Photographer(photographerData.id, photographerData.portrait, photographerData.name, photographerData.city, photographerData.country, photographerData.tagline, photographerData.price, photographerData.tags);
-    photographer.render();
-  }
+
+  const filteredMedia = result.media.filter(mediaData => mediaData.photographerId === Number(id));
+
+  filteredMedia.forEach(element => {
+    // const image = new Image(element.id, element.photographerId, element.title, element.image, element.tags, element.likes, element.date, element.price);
+    // image.render();
+
+    if (element.image) {
+      const image = new Image(element.id, element.photographerId, element.title, element.image, element.tags, element.likes, element.date, element.price);
+      image.render();
+    }
+
+    if (element.video) {
+      const video = new Video(element.id, element.photographerId, element.title, element.video, element.tags, element.likes, element.date, element.price);
+      video.render();
+    }
+  });
 }).catch( (err) => {
   alert(err);
 });
+
 
 
 /////////////////////////////
