@@ -24,29 +24,29 @@ class Photographer {
       const span3 = document.createElement('span');
       const ul = document.createElement('ul');
       
+      // Class List
       div.classList.add('photographer');
-      // Link : Image & name
       link.classList.add('photographer__link');
-      link.setAttribute('href', `page.html?id=${this.id}`);
       image.classList.add('photographer__img');
+      h2.classList.add('heading-2', 'heading-2--home');
+      span1.classList.add('photographer__location');
+      span2.classList.add('photographer__tagline');
+      span3.classList.add('photographer__price');
+      ul.classList.add('tags');
+
+      // Set Attribute
+      const nameSplit = this.name.split(' ');
+      link.setAttribute('href', `page.html?id=${this.id}&name=${nameSplit[0]}`);
       image.setAttribute('src', `./img/Photographers ID Photos/`+this.portrait);
       image.setAttribute('alt', this.name);
 
-      h2.classList.add('heading-2', 'heading-2--home');
+      // INNER HTML
       h2.innerHTML = this.name;
-
-      // Span : Location, tagline, Price
-      span1.classList.add('photographer__location');
       span1.innerHTML = this.city + ', ' + this.country;
-
-      span2.classList.add('photographer__tagline');
       span2.innerHTML = this.tagline;
-
-      span3.classList.add('photographer__price');
       span3.innerHTML = this.price + '€/jour';
 
       // Tag List
-      ul.classList.add('tags');
       this.tags.forEach(element => {
         const li = document.createElement('li');
         const liLink = document.createElement('a');

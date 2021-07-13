@@ -15,13 +15,9 @@ fetch('FishEyeData.json').then( (data) => {
   const photographer = new Photographer(filteredPhotographers[0].id, filteredPhotographers[0].portrait, filteredPhotographers[0].name, filteredPhotographers[0].city,filteredPhotographers[0].country, filteredPhotographers[0].tagline, filteredPhotographers[0].price, filteredPhotographers[0].tags);
   photographer.renderPortfolio();
 
-
   const filteredMedia = result.media.filter(mediaData => mediaData.photographerId === Number(id));
 
   filteredMedia.forEach(element => {
-    // const image = new Image(element.id, element.photographerId, element.title, element.image, element.tags, element.likes, element.date, element.price);
-    // image.render();
-
     if (element.image) {
       const image = new Image(element.id, element.photographerId, element.title, element.image, element.tags, element.likes, element.date, element.price);
       image.render();
