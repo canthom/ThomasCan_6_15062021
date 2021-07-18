@@ -71,6 +71,10 @@ class Photographer {
   renderPortfolio() {
     const container = document.getElementsByTagName('main')[0];
     if (container) {
+      // récupération du DOM
+      const price = document.getElementsByClassName('cta__prices')[0];
+      price.innerHTML = `${this.price}€/jour`
+
       // Création d'éléments
       const header = document.createElement('header');
       const divProfile = document.createElement('div');
@@ -81,7 +85,17 @@ class Photographer {
       const span2 = document.createElement('span');
       const ul = document.createElement('ul');
       const btn = document.createElement('button');
-      
+
+      // TEST
+      const modalCont = document.querySelector('.modal-container');
+      const spanName = document.querySelector('h1 > span');
+      spanName.innerHTML = this.name;
+      btn.addEventListener('click', launchModal);
+      function launchModal() {
+        modalCont.style.display = "grid";
+      }
+      // TEST
+ 
       // Class List
       header.classList.add('photographer-header');
       divProfile.classList.add('photographer-header__profile');

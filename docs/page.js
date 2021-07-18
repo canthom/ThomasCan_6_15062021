@@ -14,31 +14,47 @@ fetch('FishEyeData.json').then( (data) => {
   const filteredPhotographers = result.photographers.filter(photographerData => photographerData.id === Number(id));
   const photographer = new Photographer(filteredPhotographers[0].id, filteredPhotographers[0].portrait, filteredPhotographers[0].name, filteredPhotographers[0].city,filteredPhotographers[0].country, filteredPhotographers[0].tagline, filteredPhotographers[0].price, filteredPhotographers[0].tags);
   photographer.renderPortfolio();
+  // renderModal(filteredPhotographers[0].name);
 
   const filteredMedia = result.media.filter(mediaData => mediaData.photographerId === Number(id));
-
-  filteredMedia.forEach(element => {
+  function factoryMedia(element) {
     if (element.image) {
-      const image = new Image(element.id, element.photographerId, element.title, element.image, element.tags, element.likes, element.date, element.price);
-      image.render();
+      return new Image(element.id, element.photographerId, element.title, element.image, element.tags, element.likes, element.date, element.price);
     }
 
     if (element.video) {
-      const video = new Video(element.id, element.photographerId, element.title, element.video, element.tags, element.likes, element.date, element.price);
-      video.render();
+      return new Video(element.id, element.photographerId, element.title, element.video, element.tags, element.likes, element.date, element.price);
     }
-  });
+  };
+
+  ////////////////////////
+  // TOTAL LIKES
+  let likes = [];
+  //////
+
+  filteredMedia.forEach(element => {
+    const newMedia = factoryMedia(element);
+    newMedia.render();
+
+    ///
+    likes.push(element.likes);
+  }); 
+  
+  ///// TOTAL LIKES
+  const addLike = (a, b) => a + b;
+  const total = likes.reduce(addLike);
+  const likesTotal = document.getElementsByClassName('cta__likes')[0];
+  likesTotal.innerHTML = total + ` <i class="fas fa-heart"></i>`;
+  ///////
+
 }).catch( (err) => {
   alert(err);
 });
 
-
-
-/////////////////////////////
-///////// MODAL
+///// MODAL
 // DOM
 const modalCont = document.querySelector('.modal-container');
-const modalBtn = document.querySelectorAll('.cta')[0];
+const modalBtn = document.getElementsByClassName('btn')[0];
 const modalClose = document.querySelector('.modal__close');
 
 const submitModal = document.forms[0];
