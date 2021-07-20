@@ -1,0 +1,46 @@
+@use '../abstracts/variables';
+
+.lightbox-container {
+    background-color: variables.$color-white;
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    
+    display: none;
+    place-items: center;
+}
+
+.lightbox {
+    height: 100%;
+    width: 100%;
+    padding: 6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    &__img {
+        width: 100rem;
+        height: 90rem;
+        object-fit: cover;
+        object-position: center;
+        border-radius: 5px;
+    }
+
+    &__previous {
+        margin-right: 3rem;
+    }
+
+    &__next {
+        margin-left: 3rem;
+    }
+
+    &__close {
+        position: absolute;
+        top: 6rem;
+        right: 6rem;
+    }
+}

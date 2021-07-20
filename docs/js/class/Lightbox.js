@@ -1,0 +1,3 @@
+class Lightbox {
+    constructor()
+}
