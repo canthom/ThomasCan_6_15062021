@@ -1,6 +1,7 @@
 import{Photographer} from './js/class/Photographer.js';
 import{Image} from './js/class/Image.js';
 import{Video} from './js/class/Video.js';
+import{Lightbox} from './js/class/Lightbox.js';
 
 // URL
 const url = new URL(window.location);
@@ -30,8 +31,8 @@ fetch('FishEyeData.json').then( (data) => {
   ////////////////////////
   // TOTAL LIKES
   let likes = [];
+ 
   //////
-
   filteredMedia.forEach(element => {
     const newMedia = factoryMedia(element);
     newMedia.render();
@@ -46,6 +47,10 @@ fetch('FishEyeData.json').then( (data) => {
   const likesTotal = document.getElementsByClassName('cta__likes')[0];
   likesTotal.innerHTML = total + ` <i class="fas fa-heart"></i>`;
   ///////
+
+  /// TEST LIGHTBOX
+  Lightbox.init();
+
 
 }).catch( (err) => {
   alert(err);
@@ -130,3 +135,5 @@ submitModal.addEventListener('submit', function(e) {
     closeModal();
   }
 });
+
+
