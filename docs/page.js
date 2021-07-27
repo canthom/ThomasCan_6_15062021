@@ -51,9 +51,18 @@ fetch('FishEyeData.json').then( (data) => {
   /// TEST LIGHTBOX
   Lightbox.init();
 
-
 }).catch( (err) => {
-  alert(err);
+  // Affichage du message d'erreur
+  const header = document.querySelector('header');
+  const divError = document.createElement('div');
+  const btnError = document.createElement('a');
+  divError.classList.add('error');
+  btnError.classList.add('btn', 'btn--error');
+  btnError.setAttribute('href', 'index.html');
+  divError.innerHTML = 'Erreur: aucun media trouvé.';
+  btnError.innerHTML = "Retournez à l'accueil";
+  document.body.insertBefore(divError, header);
+  divError.append(btnError);
 });
 
 ///// MODAL

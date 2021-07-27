@@ -51,14 +51,14 @@ class Video extends Media {
       let clicked = false;
       span2.addEventListener('click', () => {
         if (clicked === false) {
-          clicked = true;
-          likeScore++;
+          clicked = !clicked;
+          likeScore+= 1;
           span2.innerHTML = likeScore + ` <i class="fas fa-heart"></i>`;
           span2.style.fontWeight = '700';
           span2.style.color = '#d3573c';
         } else if (clicked === true) {
-          clicked = false;
-          likeScore--;
+          clicked = !clicked;
+          likeScore-= 1;
           span2.innerHTML = likeScore + ` <i class="fas fa-heart"></i>`;
           span2.style.fontWeight = '';
           span2.style.color = '';

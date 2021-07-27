@@ -1,0 +1,13 @@
+@use '../abstracts/variables';
+
+.error {
+  background-color: red;
+  padding: 1rem;
+  color: variables.$color-white;
+  font-size: 1.6rem;
+  font-weight: 700;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

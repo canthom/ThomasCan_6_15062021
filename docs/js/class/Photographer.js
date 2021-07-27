@@ -124,7 +124,7 @@ class Photographer {
       
         li.classList.add('tags__item');
         liLink.classList.add('tags__link');
-        liLink.setAttribute('href', `?tag=${element}`);
+        liLink.setAttribute('href', `index.html?tag=${element}`);
         liLink.innerHTML = `#${element}`;
 
         ul.append(li);

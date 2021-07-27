@@ -16,7 +16,7 @@ class Lightbox {
         document.addEventListener('keyup', this.onKeyUp);
     }
 
-    close(e) {
+    close (e) {
         e.preventDefault();
         const divCont = document.querySelector('.lightbox-container');
         divCont.parentElement.removeChild(divCont);
@@ -27,9 +27,9 @@ class Lightbox {
         e.preventDefault();
     }
 
-    onKeyUp(e) {
+    onKeyUp (e) {
         if (e.key === 'Escape') {
-            this.close();
+            this.close(e);
         }
     }
 
@@ -65,7 +65,7 @@ class Lightbox {
         divBox.append(btnPrev, fig, btnNext, btnClose);
         fig.append(figCaption);
 
-        if (url.includes('jpg')) {
+        if (url.endsWith('jpg')) {
             const mediaFig = document.createElement('img');
             mediaFig.classList.add('lightbox__img');
             mediaFig.setAttribute('src', `${url}`);
@@ -73,7 +73,7 @@ class Lightbox {
             fig.append(mediaFig);
         }
 
-        if (url.includes('mp4')) {
+        if (url.endsWith('mp4')) {
             const mediaFig = document.createElement('video');
             mediaFig.classList.add('lightbox__img');
             mediaFig.setAttribute('src', `${url}`);
