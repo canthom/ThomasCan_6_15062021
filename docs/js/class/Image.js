@@ -1,4 +1,6 @@
 import{Media} from './Media.js';
+import{updateLike} from '../like.js';
+
 
 class Image extends Media {
   constructor(imageId, photographerId, title, image, tags, likes, date, price) {
@@ -47,7 +49,7 @@ class Image extends Media {
       figcaption.append(span1, span2);
 
       // EVENTS
-      // LIKE BUTTON
+      // LIKE BUTTON 
       let clicked = false;
       span2.addEventListener('click', () => {
         if (clicked === false) {
@@ -63,6 +65,7 @@ class Image extends Media {
           span2.style.fontWeight = '';
           span2.style.color = '';
         }
+        updateLike();
       });
     }
   }

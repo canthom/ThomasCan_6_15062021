@@ -1,4 +1,5 @@
 import{Media} from './Media.js';
+import{updateLike} from '../like.js';
 
 class Video extends Media {
   constructor(imageId, photographerId, title, video, tags, likes, date, price) {
@@ -63,6 +64,7 @@ class Video extends Media {
           span2.style.fontWeight = '';
           span2.style.color = '';
         }
+        updateLike();
       });
     }
   }
