@@ -1,79 +1,82 @@
 @use '../abstracts/variables';
 
 .lightbox-container {
-    background-color: variables.$color-white;
-    position: fixed;
-    z-index: 10;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    width: 100vw;
-    display: grid;
-    place-items: center;
-    overflow: auto;
+  background-color: variables.$color-white;
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  place-items: center;
+  overflow: auto;
 }
 
 .lightbox {
-    width: 100%;
-    max-width: 100rem;
-    padding: 6rem;
+  width: 100%;
+  max-width: 100rem;
+  padding: 6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  &__figure {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    position: relative;
+  }
 
-    &__figure {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
+  &__img {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 5px;
+  }
+
+  &__caption {
+    font-size: 2.4rem;
+    color: variables.$color-primary;
+    order: 2;
+  }
+
+  &__btn {
+    border: none;
+    cursor: pointer;
+    z-index: 11;
+    transition: opacity 0.3s;
+
+    &:hover {
+      opacity: 0.8;
     }
+  }
 
-    &__img {
-        max-width: 100%;
-        height: auto;
-        object-fit: cover;
-        object-position: center;
-        border-radius: 5px;
-    }
+  &__previous,
+  &__next {
+    width: 30px;
+    height: 48px;
+    position: absolute;
+  }
 
-    &__caption {
-        font-size: 2.4rem;
-        color: variables.$color-primary;
-        order: 2;
-    }
+  &__previous {
+    background: url(../img/arrow-left.svg) center center / 100% 100%;
+    left: 0;
+  }
 
-    &__btn {
-        border: none;
-        cursor: pointer;
-        z-index: 11;
-        transition: opacity .3s;
+  &__next {
+    background: url(../img/arrow-right.svg) center center / 100% 100%;
+    right: 0;
+  }
 
-        &:hover {
-            opacity: 0.8;
-        }
-    }
-
-    &__previous,
-    &__next {
-        width: 30px;
-        height: 48px;
-    }
-
-    &__previous {
-        background: url(../img/arrow-left.svg) center center / 100% 100%;
-    }
-
-    &__next {
-        background: url(../img/arrow-right.svg) center center / 100% 100%;
-    }
-
-    &__close {
-        background: url(../img/btn-close.svg) center center / 100% 100%;
-        position: absolute;
-        height: 42px;
-        width: 42px;
-        top: 6rem;
-        right: 6rem;
-    }
+  &__close {
+    background: url(../img/btn-close.svg) center center / 100% 100%;
+    position: absolute;
+    height: 42px;
+    width: 42px;
+    top: 6rem;
+    right: 0;
+  }
 }

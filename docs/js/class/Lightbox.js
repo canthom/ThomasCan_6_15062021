@@ -42,7 +42,7 @@ class Lightbox {
         const divCont = document.createElement('div');
         const divBox = document.createElement('div');
         const btnPrev = document.createElement('button');
-        const fig = document.createElement('fig');
+        const fig = document.createElement('figure');
         const figCaption = document.createElement('figcaption');
         const btnNext = document.createElement('button');
         const btnClose = document.createElement('button');

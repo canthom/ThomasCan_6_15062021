@@ -14,6 +14,7 @@ class Photographer {
   // Création de la carte Photographe HOMEPAGE
   renderHomepage() {
     const container = document.getElementsByTagName('main')[0];
+
     if (container) {
       const div = document.createElement('div');
       const link = document.createElement('a');
@@ -55,7 +56,6 @@ class Photographer {
         liLink.classList.add('tags__link');
         liLink.setAttribute('href', `?tag=${element}`);
         liLink.innerHTML = `#${element}`;
-
         ul.append(li);
         li.append(liLink);
       });
@@ -124,7 +124,7 @@ class Photographer {
       
         li.classList.add('tags__item');
         liLink.classList.add('tags__link');
-        liLink.setAttribute('href', '#');
+        liLink.setAttribute('href', `?tag=${element}`);
         liLink.innerHTML = `#${element}`;
 
         ul.append(li);

@@ -7,6 +7,7 @@ import{Lightbox} from './js/class/Lightbox.js';
 const url = new URL(window.location);
 const searchParams = new URLSearchParams(url.search);
 const id = searchParams.get('id');
+const tag = searchParams.get('tag');
 
 // Récupérer les données depuis le fichier JSON
 fetch('FishEyeData.json').then( (data) => {
@@ -15,7 +16,6 @@ fetch('FishEyeData.json').then( (data) => {
   const filteredPhotographers = result.photographers.filter(photographerData => photographerData.id === Number(id));
   const photographer = new Photographer(filteredPhotographers[0].id, filteredPhotographers[0].portrait, filteredPhotographers[0].name, filteredPhotographers[0].city,filteredPhotographers[0].country, filteredPhotographers[0].tagline, filteredPhotographers[0].price, filteredPhotographers[0].tags);
   photographer.renderPortfolio();
-  // renderModal(filteredPhotographers[0].name);
 
   const filteredMedia = result.media.filter(mediaData => mediaData.photographerId === Number(id));
   function factoryMedia(element) {
