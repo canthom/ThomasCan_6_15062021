@@ -1,13 +1,10 @@
-class Video {
+import{Media} from './Media.js';
+
+class Video extends Media {
   constructor(imageId, photographerId, title, video, tags, likes, date, price) {
-    this.imageId = imageId;
-    this.photographerId = photographerId;
-    this.title = title;
+    super(imageId, photographerId, title, tags, likes, date, price);
+
     this.video = video;
-    this.tags = tags;
-    this.likes = likes;
-    this.date = date;
-    this.price = price;
   }
 
   render(){
@@ -25,6 +22,7 @@ class Video {
       const figure = document.createElement('figure');
       const figcaption = document.createElement('figcaption');
       const icon = document.createElement('i');
+      const linkMedia = document.createElement('a');
       
       // Class List
       figure.classList.add('work');
@@ -37,6 +35,7 @@ class Video {
       // Attributes
       videoWork.setAttribute('src', `./img/${name}/`+this.video);
       videoWork.setAttribute('controls', '');
+      linkMedia.setAttribute('href', `./img/${name}/`+this.video);
 
       // INNER HTML
       span1.innerHTML = this.title;
@@ -44,7 +43,8 @@ class Video {
 
       // Append Works
       container.append(figure);
-      figure.append(videoWork, figcaption);
+      figure.append(linkMedia, figcaption);
+      linkMedia.append(videoWork);      
       figcaption.append(span1, span2);
       span2.append(icon);
     }

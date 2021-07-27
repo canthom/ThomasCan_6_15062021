@@ -170,4 +170,4 @@ submitModal.addEventListener('submit', function(e) {
   }
 });
 
-export{modal};
+export default renderModal;
