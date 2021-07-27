@@ -9,6 +9,7 @@ class Video extends Media {
 
   render(){
     const container = document.getElementsByClassName('work-container')[0];
+    let likeScore = Number(this.likes);
     // URL
     const url = new URL(window.location);
     const searchParams = new URLSearchParams(url.search);
@@ -21,7 +22,6 @@ class Video extends Media {
       const span2 = document.createElement('span');
       const figure = document.createElement('figure');
       const figcaption = document.createElement('figcaption');
-      const icon = document.createElement('i');
       const linkMedia = document.createElement('a');
       
       // Class List
@@ -30,7 +30,6 @@ class Video extends Media {
       figcaption.classList.add('work__caption');
       span1.classList.add('work__title');
       span2.classList.add('work__likes');
-      icon.classList.add('fas', 'fa-heart');
 
       // Attributes
       videoWork.setAttribute('src', `./img/${name}/`+this.video);
@@ -39,14 +38,32 @@ class Video extends Media {
 
       // INNER HTML
       span1.innerHTML = this.title;
-      span2.innerHTML = this.likes;
+      span2.innerHTML = likeScore + ` <i class="fas fa-heart"></i>`;
 
       // Append Works
       container.append(figure);
       figure.append(linkMedia, figcaption);
       linkMedia.append(videoWork);      
       figcaption.append(span1, span2);
-      span2.append(icon);
+
+      ///// EVENTS
+      // LIKE BUTTON
+      let clicked = false;
+      span2.addEventListener('click', () => {
+        if (clicked === false) {
+          clicked = true;
+          likeScore++;
+          span2.innerHTML = likeScore + ` <i class="fas fa-heart"></i>`;
+          span2.style.fontWeight = '700';
+          span2.style.color = '#d3573c';
+        } else if (clicked === true) {
+          clicked = false;
+          likeScore--;
+          span2.innerHTML = likeScore + ` <i class="fas fa-heart"></i>`;
+          span2.style.fontWeight = '';
+          span2.style.color = '';
+        }
+      });
     }
   }
 }

@@ -9,11 +9,12 @@ class Image extends Media {
 
   render(){
     const container = document.getElementsByClassName('work-container')[0];
+    let likeScore = Number(this.likes);
     // URL
     const url = new URL(window.location);
     const searchParams = new URLSearchParams(url.search);
     const name = searchParams.get('name');
-    let likeScore = Number(this.likes);
+
 
     if (container) {
       // Création d'éléments
@@ -46,9 +47,22 @@ class Image extends Media {
       figcaption.append(span1, span2);
 
       // EVENTS
+      // LIKE BUTTON
+      let clicked = false;
       span2.addEventListener('click', () => {
-        likeScore++;
-        span2.innerHTML = likeScore + ` <i class="fas fa-heart"></i>`;
+        if (clicked === false) {
+          clicked = true;
+          likeScore++;
+          span2.innerHTML = likeScore + ` <i class="fas fa-heart"></i>`;
+          span2.style.fontWeight = '700';
+          span2.style.color = '#d3573c';
+        } else if (clicked === true) {
+          clicked = false;
+          likeScore--;
+          span2.innerHTML = likeScore + ` <i class="fas fa-heart"></i>`;
+          span2.style.fontWeight = '';
+          span2.style.color = '';
+        }
       });
     }
   }
