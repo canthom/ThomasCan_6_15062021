@@ -15,8 +15,12 @@ class Image extends Media {
     // URL
     const url = new URL(window.location);
     const searchParams = new URLSearchParams(url.search);
-    const name = searchParams.get('name');
 
+    // TEST NAME
+    const getPhotographerName = document.querySelector('h1').textContent;
+    const splitPhotographerName = getPhotographerName.split(' ');
+    const name = splitPhotographerName[0];
+    // TEST NAME
 
     if (container) {
       // Création d'éléments

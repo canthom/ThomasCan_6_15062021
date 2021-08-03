@@ -37,7 +37,7 @@ class Photographer {
 
       // Set Attribute
       const nameSplit = this.name.split(' ');
-      link.setAttribute('href', `page.html?id=${this.id}&name=${nameSplit[0]}`);
+      link.setAttribute('href', `page.html?id=${this.id}`);
       image.setAttribute('src', `./img/Photographers ID Photos/`+this.portrait);
       image.setAttribute('alt', this.name);
 
@@ -86,7 +86,7 @@ class Photographer {
       const ul = document.createElement('ul');
       const btn = document.createElement('button');
 
-      // TEST
+      //////////////////////////////////////////////////////////////////// MODAL TEST
       const modalCont = document.querySelector('.modal-container');
       const spanName = document.querySelector('h1 > span');
       spanName.innerHTML = this.name;
@@ -94,7 +94,7 @@ class Photographer {
       function launchModal() {
         modalCont.style.display = "grid";
       }
-      // TEST
+      //////////////////////////////////////////////////////////////////// MODAL TEST
  
       // Class List
       header.classList.add('photographer-header');

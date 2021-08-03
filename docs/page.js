@@ -103,7 +103,7 @@ fetch('FishEyeData.json').then( (data) => {
   divError.append(btnError);
 });
 
-///// MODAL
+//////////////////////////////////////// MODAL
 // DOM
 const modalCont = document.querySelector('.modal-container');
 const modalBtn = document.getElementsByClassName('btn')[0];
