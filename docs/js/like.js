@@ -4,7 +4,6 @@ function updateLike()  {
   likes.forEach( element => {
     likesArray.push(Number(element.textContent));
   });
-  console.log(likesArray);
 
   const addLike = (a, b) => a + b;
   const total = likesArray.reduce(addLike);

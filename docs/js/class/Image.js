@@ -37,6 +37,7 @@ class Image extends Media {
       // Attributes
       imageWork.setAttribute('src', `./img/${name}/`+this.image);
       linkMedia.setAttribute('href', `./img/${name}/`+this.image);
+      linkMedia.setAttribute('data-title', `${this.title}`);
 
       // INNER HTML
       span1.innerHTML = this.title;

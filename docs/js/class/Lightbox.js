@@ -2,14 +2,17 @@ class Lightbox {
     static init() {
         const medias = Array.from(document.querySelectorAll('a[href$="jpg"], a[href$="mp4"]'));
         const gallery = medias.map(media => media.getAttribute('href'));
+        
         medias.forEach(media => media.addEventListener('click', e => {
             e.preventDefault();
-            new Lightbox(e.currentTarget.getAttribute('href'), gallery);
+            new Lightbox(e.currentTarget.getAttribute('href'), e.currentTarget.getAttribute('data-title'), gallery);
         }));
     }
 
-    constructor(url, gallery) {
-        this.element = this.render(url);
+
+
+    constructor(url, title, gallery) {
+        this.element = this.render(url, title);
         this.gallery = gallery;
         
         this.onKeyUp = this.onKeyUp.bind(this);
@@ -25,19 +28,53 @@ class Lightbox {
 
     next (e) {
         e.preventDefault();
+
+        // Supprimer la précédente Lightbox
+        const divCont = document.querySelector('.lightbox-container');
+        divCont.parentElement.removeChild(divCont);
+
+        // Trouver la Lightbox suivante
+        let i = this.gallery.findIndex(media => media === this.url);
+
+        // Revenir au début de la gallerie
+        if (i === this.gallery.length - 1) {
+            i = -1;
+        }
+
+        // Afficher l'image suivante
+        this.render(this.gallery[i + 1]);
     }
 
     onKeyUp (e) {
         if (e.key === 'Escape') {
             this.close(e);
+        } else if (e.key === 'ArrowLeft') {
+            this.prev(e);
+        } else if (e.key === 'ArrowRight') {
+            this.next(e);
         }
     }
 
     prev (e) {
         e.preventDefault();
+
+        // Supprimer la précédente Lightbox
+        const divCont = document.querySelector('.lightbox-container');
+        divCont.parentElement.removeChild(divCont);
+
+        // Trouver la Lightbox suivante
+        let i = this.gallery.findIndex(media => media === this.url);
+
+        // Aller à la fin de la gallerie
+        if (i === 0) {
+            i = this.gallery.length;
+        }
+
+        // Afficher l'image précédente
+        this.render(this.gallery[i - 1]);
     }
 
-    render(url) {
+    render(url, title) {
         // Création des éléments
         const divCont = document.createElement('div');
         const divBox = document.createElement('div');
@@ -57,7 +94,7 @@ class Lightbox {
         btnClose.classList.add('lightbox__close', 'lightbox__btn');
 
         // INNER HTML
-        figCaption.innerHTML = this.title;
+        figCaption.innerHTML = title;
 
         // APPEND
         document.body.append(divCont);
@@ -81,6 +118,8 @@ class Lightbox {
             mediaFig.setAttribute('controls', '');
             fig.append(mediaFig);
         }
+
+        this.url = url;
 
         // EVENTS
         btnClose.addEventListener('click', this.close.bind(this));
