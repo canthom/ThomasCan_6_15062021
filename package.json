@@ -1,0 +1,27 @@
+{
+  "name": "FishEye",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "doc": "jsdoc -c jsdoc.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/canthom/ThomasCan_6_15062021.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/canthom/ThomasCan_6_15062021/issues"
+  },
+  "homepage": "https://github.com/canthom/ThomasCan_6_15062021#readme",
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "jsdoc": "^3.6.7"
+  }
+}

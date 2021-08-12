@@ -1,5 +1,5 @@
 import{Media} from './Media.js';
-import{updateLike} from '../like.js';
+import{updateLike} from '../functions/like.js';
 
 
 class Image extends Media {
@@ -12,9 +12,6 @@ class Image extends Media {
   render(){
     const container = document.getElementsByClassName('work-container')[0];
     let likeScore = Number(this.likes);
-    // URL
-    const url = new URL(window.location);
-    const searchParams = new URLSearchParams(url.search);
 
     // TEST NAME
     const getPhotographerName = document.querySelector('h1').textContent;
@@ -40,6 +37,7 @@ class Image extends Media {
 
       // Attributes
       imageWork.setAttribute('src', `./img/${name}/`+this.image);
+      imageWork.setAttribute('role', 'img');
       linkMedia.setAttribute('href', `./img/${name}/`+this.image);
       linkMedia.setAttribute('data-title', `${this.title}`);
 

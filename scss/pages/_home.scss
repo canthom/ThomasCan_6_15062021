@@ -10,7 +10,7 @@
 
     @include mixins.respond(tab-port) {
       flex-direction: row;
-      justify-content: space-around;
+      justify-content: space-between;
       flex-wrap: wrap;
     }
 
@@ -20,7 +20,7 @@
       }
 
       @include mixins.respond(tab-land) {
-        flex-basis: 33%;
+        flex-basis: 27.5%;
       }
     }
   }

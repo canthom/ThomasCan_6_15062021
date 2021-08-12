@@ -1,4 +1,5 @@
 @use '../abstracts/variables';
+@use '../abstracts/mixins';
 
 .lightbox-container {
   background-color: variables.$color-white;
@@ -16,11 +17,16 @@
 .lightbox {
   width: 100%;
   max-width: 100rem;
-  padding: 6rem;
+  height: 100%;
+  padding: 4rem;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
+
+  @include mixins.respond(tab-land) {
+    padding: 6rem;
+  }
 
   &__figure {
     display: flex;
@@ -56,9 +62,13 @@
 
   &__previous,
   &__next {
-    width: 30px;
-    height: 48px;
     position: absolute;
+    width: 13px;
+    height: 8px;
+    @include mixins.respond(tab-land) {
+      width: 30px;
+      height: 48px;
+    }
   }
 
   &__previous {
@@ -74,9 +84,15 @@
   &__close {
     background: url(../img/btn-close.svg) center center / 100% 100%;
     position: absolute;
-    height: 42px;
-    width: 42px;
-    top: 6rem;
+    height: 11.57px;
+    width: 11.57px;
+    top: 4rem;
     right: 0;
+
+    @include mixins.respond(tab-land) {
+      height: 42px;
+      width: 42px;
+      top: 6rem;
+    }
   }
 }

@@ -3,11 +3,15 @@
 .main {
   width: 100%;
 
+  &--page {
+    margin-bottom: 5rem;
+  }
+
   @include mixins.respond(tab-land) {
     max-width: 140rem;
     &--page {
       max-width: 140rem;
-      margin: 0 auto;
+      margin: 0 auto 10rem;
     }
   }
 }

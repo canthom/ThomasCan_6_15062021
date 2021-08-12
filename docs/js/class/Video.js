@@ -1,5 +1,5 @@
 import{Media} from './Media.js';
-import{updateLike} from '../like.js';
+import{updateLike} from '../functions/like.js';
 
 class Video extends Media {
   constructor(imageId, photographerId, title, video, tags, likes, date, price) {
@@ -11,15 +11,10 @@ class Video extends Media {
   render(){
     const container = document.getElementsByClassName('work-container')[0];
     let likeScore = Number(this.likes);
-    // URL
-    const url = new URL(window.location);
-    const searchParams = new URLSearchParams(url.search);
 
-    // TEST NAME
     const getPhotographerName = document.querySelector('h1').textContent;
     const splitPhotographerName = getPhotographerName.split(' ');
     const name = splitPhotographerName[0];
-    // TEST NAME
 
     if (container) {
       // Création d'éléments

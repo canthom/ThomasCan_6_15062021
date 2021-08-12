@@ -23,7 +23,14 @@
 
   &-cta {
     &--mobile {
-      display: none;
+      padding: 1rem 2rem;
+      display: block;
+      position: fixed;
+      bottom: 1rem;
+      min-width: max-content;
+      left: 50%;
+      right: 50%;
+      transform: translateX(-50%);
       @include mixins.respond(tab-land) {
         display: none;
       }

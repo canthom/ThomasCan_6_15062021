@@ -89,7 +89,7 @@
   position: fixed;
   bottom: 0;
   right: 4rem;
-  display: inline-block;
+  display: none;
   background-color: variables.$color-secondary-light;
   padding: 2rem 3rem;
   font-weight: 500;
@@ -98,5 +98,9 @@
 
   &__likes {
     margin-right: 7rem;
+  }
+
+  @include mixins.respond(tab-land) {
+    display: inline-block;
   }
 }

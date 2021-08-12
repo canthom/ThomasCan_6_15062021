@@ -1,4 +1,4 @@
-import{Photographer} from './js/class/Photographer.js';
+import{Photographer} from './class/Photographer.js';
 
 // URL
 const url = new URL(window.location);

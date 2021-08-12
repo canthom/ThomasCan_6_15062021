@@ -1,3 +1,5 @@
+import{Contact} from '../class/Contact.js';
+
 class Photographer {
   constructor(id, portrait, name, city, country, tagline, price, tags){
     this.id = id;
@@ -36,10 +38,11 @@ class Photographer {
       ul.classList.add('tags');
 
       // Set Attribute
-      const nameSplit = this.name.split(' ');
       link.setAttribute('href', `page.html?id=${this.id}`);
       image.setAttribute('src', `./img/Photographers ID Photos/`+this.portrait);
       image.setAttribute('alt', this.name);
+      image.setAttribute('role', 'img');
+      ul.setAttribute('aria-label', 'Navigation Secondaire');
 
       // INNER HTML
       h2.innerHTML = this.name;
@@ -58,6 +61,17 @@ class Photographer {
         liLink.innerHTML = `#${element}`;
         ul.append(li);
         li.append(liLink);
+        
+        // Tag en surbrillance
+        const url = new URL(window.location);
+        const searchParams = new URLSearchParams(url.search);
+        const tag = searchParams.get('tag');
+
+        if (liLink.textContent.includes(tag)) {
+          li.style.backgroundColor = '#D3573C';
+          li.style.color = '#000';
+          li.setAttribute('aria-current', 'true');
+        }
       });
 
       // Append 
@@ -86,16 +100,6 @@ class Photographer {
       const ul = document.createElement('ul');
       const btn = document.createElement('button');
 
-      //////////////////////////////////////////////////////////////////// MODAL TEST
-      const modalCont = document.querySelector('.modal-container');
-      const spanName = document.querySelector('h1 > span');
-      spanName.innerHTML = this.name;
-      btn.addEventListener('click', launchModal);
-      function launchModal() {
-        modalCont.style.display = "grid";
-      }
-      //////////////////////////////////////////////////////////////////// MODAL TEST
- 
       // Class List
       header.classList.add('photographer-header');
       divProfile.classList.add('photographer-header__profile');
@@ -109,12 +113,22 @@ class Photographer {
       // Attributes
       imageProfile.setAttribute('src', `./img/Photographers ID Photos/`+this.portrait);
       imageProfile.setAttribute('alt', this.name);
+      imageProfile.setAttribute('role', 'img');
+      ul.setAttribute('aria-label', 'Navigation Secondaire');
 
       // INNER HTML
       h1.innerHTML = this.name;
       span1.innerHTML = this.city + ', ' + this.country;
       span2.innerHTML = this.tagline;
       btn.innerHTML = 'Contactez-moi';
+
+      // Formulaire de Contact
+      const contactForm = new Contact(this.name);
+      contactForm.render();
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        contactForm.open();
+      });
 
       // Tags
       ul.classList.add('tags', 'tags--page');
