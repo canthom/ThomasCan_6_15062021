@@ -1,4 +1,5 @@
 @use '../abstracts/variables';
+@use '../abstracts/mixins';
 
 .modal-container {
   background-color: rgba(variables.$color-white, 0.4);
@@ -15,30 +16,46 @@
 
 .modal {
   background-color: variables.$color-secondary-light;
-  width: 67rem;
+  width: 100%;
+  height: 100%;
   padding: 1rem 0;
   margin: 0 auto;
   box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.25);
   position: relative;
 
+  @include mixins.respond(tab-port) {
+    height: auto;
+    max-width: 67rem;
+  }
+
   &__close {
     position: absolute;
     right: 1rem;
     top: 2rem;
-    width: 82px;
-    height: 82px;
+    width: 34px;
+    height: 34px;
     opacity: 1;
     cursor: pointer;
     transform: scale(0.7);
+
+    @include mixins.respond(tab-port) {
+      width: 82px;
+      height: 82px;
+    }
 
     &:before,
     &:after {
       position: absolute;
       left: 15px;
       content: ' ';
-      height: 83px;
-      width: 8px;
+      height: 32px;
+      width: 3px;
       background-color: #fff;
+
+      @include mixins.respond(tab-port) {
+        height: 83px;
+        width: 8px;
+      }
     }
 
     &:before {
@@ -54,10 +71,15 @@
 .form {
   margin: 0 auto;
   width: 90%;
-  font-size: 3.6rem;
+  font-size: 2.4rem;
+
+  @include mixins.respond(tab-port) {
+    font-size: 3.6rem;
+  }
 
   &__data {
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
+    border: none;
 
     // Messages d'Erreur
     &[data-error]::after {
@@ -75,6 +97,7 @@
 
   &__label {
     color: variables.$color-grey-darker;
+    margin-bottom: 2rem;
   }
 
   &__input,
@@ -85,6 +108,10 @@
     width: 100%;
     outline: none;
     font-size: 2rem;
-    padding: 2rem;
+    padding: 1rem;
+
+    @include mixins.respond(tab-port) {
+      padding: 2rem;
+    }
   }
 }

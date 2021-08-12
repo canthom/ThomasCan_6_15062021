@@ -14,7 +14,20 @@
   border: none;
 
   &--form {
-    padding: 2.3rem 5rem;
+    padding: 1rem 5rem;
+    position: absolute;
+    left: 50%;
+    right: 50%;
+    transform: translateX(-50%);
+
+    @include mixins.respond(tab-port) {
+      position: relative;
+
+      left: 0;
+      right: 0;
+      transform: translateX(0);
+      padding: 2.3rem 5rem;
+    }
   }
 
   &--error {
@@ -31,6 +44,7 @@
       left: 50%;
       right: 50%;
       transform: translateX(-50%);
+
       @include mixins.respond(tab-land) {
         display: none;
       }
@@ -39,7 +53,7 @@
     &--desktop {
       padding: 1rem 2rem;
 
-      @include mixins.respond(phone) {
+      @include mixins.respond(tab-port) {
         display: none;
       }
 
