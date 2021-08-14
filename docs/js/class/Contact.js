@@ -1,9 +1,12 @@
 class Contact {
   constructor(name) {
     this.name = name;
+
+    this.onKeyUp = this.onKeyUp.bind(this);
+    document.addEventListener('keyup', this.onKeyUp);
   }
 
-  close () {
+  close (e) {
     const modalCont = document.querySelector('.modal-container');
     modalCont.style.display = "none";
     document.forms[0].reset();
@@ -12,6 +15,12 @@ class Contact {
   open () {
     const modalCont = document.querySelector('.modal-container');
     modalCont.style.display = "grid";
+  }
+
+  onKeyUp(e) {
+    if (e.key === 'Escape') {
+      this.close(e);
+    }
   }
 
   render () {

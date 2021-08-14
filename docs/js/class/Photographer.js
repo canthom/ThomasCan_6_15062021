@@ -148,13 +148,12 @@ class Photographer {
       // Append Header
       const section = document.getElementsByTagName('section')[0];
       container.insertBefore(header, section);
-      header.append(divProfile, imageProfile);
+      header.append(divProfile, btn, imageProfile);
       divProfile.append(h1);
       divProfile.append(divInfo);
       divProfile.append(ul);
       divInfo.append(span1);
       divInfo.append(span2);
-      divProfile.append(btn);
     }
   }
 }

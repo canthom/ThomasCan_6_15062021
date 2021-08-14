@@ -11,13 +11,11 @@
   width: 100vw;
   display: grid;
   place-items: center;
-  overflow: auto;
+  overflow: hidden;
 }
 
 .lightbox {
-  width: 100%;
-  max-width: 100rem;
-  height: 100%;
+  max-width: 125rem;
   padding: 4rem;
   display: flex;
   align-items: center;
@@ -37,10 +35,15 @@
 
   &__img {
     max-width: 100%;
-    height: auto;
+    min-height: 25rem;
     object-fit: cover;
     object-position: center;
     border-radius: 5px;
+
+    @include mixins.respond(tab-port) {
+      max-width: 95rem;
+      height: 80rem;
+    }
   }
 
   &__caption {

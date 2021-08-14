@@ -13,6 +13,13 @@
   transition: all 0.2s;
   border: none;
 
+  &--work {
+    border: none;
+    color: inherit;
+    width: 2.2rem;
+    height: 2.2rem;
+  }
+
   &--form {
     padding: 1rem 5rem;
     position: absolute;
@@ -46,20 +53,24 @@
       transform: translateX(-50%);
 
       @include mixins.respond(tab-land) {
+        left: 30%;
+      }
+
+      @include mixins.respond(desktop) {
         display: none;
       }
     }
 
     &--desktop {
       padding: 1rem 2rem;
+      display: none;
 
-      @include mixins.respond(tab-port) {
-        display: none;
-      }
-
-      @include mixins.respond(tab-land) {
+      @include mixins.respond(desktop) {
         display: block;
-        flex-basis: fill;
+        position: absolute;
+        top: 6rem;
+        left: 30%;
+        padding: 2rem 1rem;
       }
     }
   }
