@@ -25,12 +25,10 @@ fetch('FishEyeData.json').then( (data) => {
       tagsList.push(element);
     });
   }
-
+  
+  // Tag Nav
   const tagsListUnique = new Set(tagsList);
 
-  console.log(tagsListUnique);
-
-  // Tag Nav
   tagsListUnique.forEach(element => {
     // Création d'éléments
     const ulTag = document.querySelector('.tags');
@@ -56,6 +54,16 @@ fetch('FishEyeData.json').then( (data) => {
       liTag.style.color = '#000';
       liTag.setAttribute('aria-current', 'true');
     }
+  });
+
+  const btnToTop = document.getElementById('btnToTop');
+
+  btnToTop.addEventListener('click', function() {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth"
+    });
   });
 
 }).catch( (err) => {

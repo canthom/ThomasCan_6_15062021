@@ -82,7 +82,11 @@
   }
 
   &--main {
-    display: none;
+    display: block;
+    position: fixed;
+    top: 6px;
+    left: 50%;
+    margin-left: -100px;
 
     @include mixins.respond(tab-land) {
       display: block;
