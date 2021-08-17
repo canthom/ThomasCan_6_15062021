@@ -66,6 +66,15 @@ fetch('FishEyeData.json').then( (data) => {
     });
   });
 
+  window.addEventListener('scroll', function () {
+    
+    if (window.scrollY > 0) {
+      btnToTop.style.display = 'block';
+    } else {
+      btnToTop.style.display = 'none';
+    }
+  });
+
 }).catch( (err) => {
   alert(err);
 });
