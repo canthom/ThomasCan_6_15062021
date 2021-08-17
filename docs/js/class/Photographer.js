@@ -108,7 +108,7 @@ class Photographer {
       span1.classList.add('photographer-header__location');
       span2.classList.add('photographer-header__quote');
       imageProfile.classList.add('photographer-header__img');
-      btn.classList.add('btn', 'btn-cta--desktop');
+      btn.classList.add('btn', 'btn-cta');
 
       // Attributes
       imageProfile.setAttribute('src', `./img/Photographers ID Photos/`+this.portrait);

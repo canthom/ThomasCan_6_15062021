@@ -42,36 +42,24 @@
   }
 
   &-cta {
-    &--mobile {
-      padding: 1rem 2rem;
-      display: block;
-      position: fixed;
-      bottom: 1rem;
-      min-width: max-content;
-      left: 50%;
-      right: 50%;
-      transform: translateX(-50%);
+    padding: 1rem 2rem;
 
-      @include mixins.respond(tab-land) {
-        left: 30%;
-      }
+    display: block;
+    position: fixed;
+    bottom: 1rem;
+    min-width: max-content;
+    left: 50%;
+    right: 50%;
+    transform: translateX(-50%);
 
-      @include mixins.respond(desktop) {
-        display: none;
-      }
-    }
-
-    &--desktop {
-      padding: 1rem 2rem;
-      display: none;
-
-      @include mixins.respond(desktop) {
-        display: block;
-        position: absolute;
-        top: 6rem;
-        left: 30%;
-        padding: 2rem 1rem;
-      }
+    @include mixins.respond(desktop) {
+      position: absolute;
+      top: 6rem;
+      left: 30%;
+      right: 0;
+      bottom: unset;
+      transform: unset;
+      padding: 2rem 1rem;
     }
   }
 
