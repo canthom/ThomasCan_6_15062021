@@ -34,7 +34,6 @@ class Video extends Media {
 
       // Attributes
       videoWork.setAttribute('src', `./img/${name}/`+this.video);
-      videoWork.setAttribute('controls', '');
       linkMedia.setAttribute('href', `./img/${name}/`+this.video);
       linkMedia.setAttribute('data-title', `${this.title}`);
       span2.setAttribute('aria-label', 'Aimer');

@@ -20,6 +20,15 @@
     }
   }
 
+  &__link {
+    &--header {
+      &::first-letter {
+        color: red !important;
+        font-weight: 700;
+      }
+    }
+  }
+
   &--page {
     font-size: 1.3rem;
     flex-wrap: wrap;

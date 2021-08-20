@@ -27,7 +27,7 @@ fetch('FishEyeData.json').then( (data) => {
   }
   
   // Tag Nav
-  const tagsListUnique = new Set(tagsList);
+  const tagsListUnique = [...new Set(tagsList)];
 
   tagsListUnique.forEach(element => {
     // Création d'éléments
@@ -36,10 +36,10 @@ fetch('FishEyeData.json').then( (data) => {
     const aTag = document.createElement('a');
 
     liTag.classList.add('tags__item');
-    aTag.classList.add('tags__link');
+    aTag.classList.add('tags__link', 'tags__link--header');
 
     aTag.setAttribute('href', `?tag=${element}`);
-    aTag.innerHTML = `#${element}`;
+    aTag.innerHTML = `#${element.slice(0, 1).toUpperCase() + element.slice(1)}`;
 
     ulTag.append(liTag);
     liTag.append(aTag);

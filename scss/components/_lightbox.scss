@@ -66,9 +66,10 @@
   &__previous,
   &__next {
     position: absolute;
-    width: 13px;
-    height: 8px;
-    @include mixins.respond(tab-land) {
+    width: 1.25rem;
+    height: 1.5rem;
+
+    @include mixins.respond(tab-port) {
       width: 30px;
       height: 48px;
     }
@@ -76,26 +77,35 @@
 
   &__previous {
     background: url(../img/arrow-left.svg) center center / 100% 100%;
-    left: 0;
+    left: 2rem;
+
+    @include mixins.respond(tab-land) {
+      left: 0;
+    }
   }
 
   &__next {
     background: url(../img/arrow-right.svg) center center / 100% 100%;
-    right: 0;
+    right: 2rem;
+
+    @include mixins.respond(tab-land) {
+      right: 0;
+    }
   }
 
   &__close {
     background: url(../img/btn-close.svg) center center / 100% 100%;
     position: absolute;
-    height: 11.57px;
-    width: 11.57px;
+    height: 1.25rem;
+    width: 1.25rem;
     top: 4rem;
-    right: 0;
+    right: 2rem;
 
     @include mixins.respond(tab-land) {
       height: 42px;
       width: 42px;
       top: 6rem;
+      right: 0;
     }
   }
 }

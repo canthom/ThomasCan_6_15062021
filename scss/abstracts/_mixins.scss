@@ -1,10 +1,10 @@
 /* Media Query Manager
-0 - 600px : Phone
-600 - 900px : Tablet Portrait
+0 - 600px : Mobile
+600 - 900px: Tablet Portrait
 900 - 1200px: Tablet Landscape
-[1200 - 1800px] is where our normal styles apply
+1200 - 1800px: Desktop 
 1800px + : Big Desktop
-$breakpoint argumenbt choices: 
+$breakpoint argument choices: 
 - phone
 - tab-port
 - tab-land

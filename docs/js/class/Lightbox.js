@@ -3,7 +3,7 @@ class Lightbox {
     const medias = Array.from(
       document.querySelectorAll('a[href$="jpg"], a[href$="mp4"]')
     );
-    console.log(medias);
+
     const gallery = medias.map((media) => ({
       url: media.getAttribute('href'),
       title: media.dataset.title,
@@ -25,15 +25,15 @@ class Lightbox {
     this.element = this.render(url, title);
     this.gallery = gallery;
     this.url = url;
-    this.onKeyUp = this.onKeyUp.bind(this);
-    document.addEventListener('keyup', this.onKeyUp);
+    this.onKeyChange = this.onKeyChange.bind(this);
+    document.addEventListener('keydown', this.onKeyChange);
   }
 
   close(e) {
     e.preventDefault();
     const divCont = document.querySelector('.lightbox-container');
     divCont.parentElement.removeChild(divCont);
-    document.removeEventListener('keyup', this.onKeyUp);
+    document.removeEventListener('keyup', this.onKeyChange);
 
     // Accessibilité
     document.querySelector('header').setAttribute('aria-hidden', 'false');
@@ -60,13 +60,18 @@ class Lightbox {
     this.render(this.gallery[i + 1].url, this.gallery[i + 1].title);
   }
 
-  onKeyUp(e) {
+  onKeyChange(e) {
     if (e.key === 'Escape') {
       this.close(e);
     } else if (e.key === 'ArrowLeft') {
       this.prev(e);
     } else if (e.key === 'ArrowRight') {
       this.next(e);
+    } else if (e.key === 'Tab') {
+      if (document.querySelector('.lightbox__close') === document.activeElement) {
+        e.preventDefault();
+        document.querySelector('.lightbox__previous').focus();
+      }
     }
   }
 
@@ -146,6 +151,7 @@ class Lightbox {
 
     // Accessibilité
     divCont.setAttribute('role', 'dialog');
+    divCont.setAttribute('role', 'application');
     divBox.setAttribute('role', 'document');
     divBox.setAttribute('aria-describedby', 'lightboxTitle');
     document.querySelector('header').setAttribute('aria-hidden', 'true');
@@ -157,6 +163,9 @@ class Lightbox {
     btnNext.setAttribute('role', 'button');
     btnNext.setAttribute('aria-label', 'Suivant');
     document.body.style.overflow = 'hidden';
+
+    // Focus sur le Bouton Précédent
+    btnPrev.focus();
   }
 }
 

@@ -6,13 +6,13 @@
   margin-bottom: 5rem;
   // A SUPPRIMER
 
-  background-color: variables.$color-grey-lighter;
   display: flex;
   width: 100%;
   align-items: center;
   padding: 0.5rem;
 
   @include mixins.respond(tab-port) {
+    background-color: variables.$color-grey-lighter;
     position: relative;
     padding: 6rem;
     max-height: 30rem;
@@ -57,8 +57,8 @@
 
     @include mixins.respond(tab-port) {
       flex: none;
-      height: 20rem;
-      width: 20rem;
+      height: 15rem;
+      width: 15rem;
       position: absolute;
       right: 6rem;
     }
