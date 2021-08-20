@@ -150,17 +150,16 @@ class Lightbox {
     btnPrev.addEventListener('click', this.prev.bind(this));
 
     // Accessibilité
-    divCont.setAttribute('role', 'dialog');
-    divCont.setAttribute('role', 'application');
-    divBox.setAttribute('role', 'document');
+    divBox.setAttribute('role', 'menubar');
     divBox.setAttribute('aria-describedby', 'lightboxTitle');
+    divBox.setAttribute('aria-label', 'Image aggrandie');
     document.querySelector('header').setAttribute('aria-hidden', 'true');
     document.querySelector('main').setAttribute('aria-hidden', 'true');
-    btnClose.setAttribute('role', 'button');
+    btnClose.setAttribute('role', 'menuitem');
     btnClose.setAttribute('aria-label', 'Fermer');
-    btnPrev.setAttribute('role', 'button');
+    btnPrev.setAttribute('role', 'menuitem');
     btnPrev.setAttribute('aria-label', 'Précédent');
-    btnNext.setAttribute('role', 'button');
+    btnNext.setAttribute('role', 'menuitem');
     btnNext.setAttribute('aria-label', 'Suivant');
     document.body.style.overflow = 'hidden';
 
