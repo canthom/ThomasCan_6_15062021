@@ -80,7 +80,9 @@ fetch('FishEyeData.json').then( (data) => {
     filteredMedia.forEach(element => {
       const newMedia = factoryMedia(element);
       newMedia.render();
-    }); 
+    });
+
+    Lightbox.init();
   })
   
   // Total des Likes
