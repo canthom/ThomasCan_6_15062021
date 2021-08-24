@@ -37,14 +37,15 @@ class Image extends Media {
 
       // Attributes
       imageWork.setAttribute('src', `./img/${name}/`+this.image);
+      imageWork.setAttribute('alt', this.title);
       imageWork.setAttribute('role', 'img');
       linkMedia.setAttribute('href', `./img/${name}/`+this.image);
-      linkMedia.setAttribute('data-title', `${this.title}`);
+      linkMedia.setAttribute('data-title', this.title);
       span2.setAttribute('aria-label', 'Aimer');
 
       // INNER HTML
       span1.innerHTML = this.title;
-      span2.innerHTML = likeScore + ` <button class="btn--work"><i class="fas fa-heart"></i></button>`;
+      span2.innerHTML = likeScore + ` <button role="button" aria-label="Aimer" class="btn--work"><i aria-hidden="true" class="fas fa-heart"></i></button>`;
 
       // Append Works
       container.append(figure);
@@ -59,13 +60,13 @@ class Image extends Media {
         if (clicked === false) {
           clicked = !clicked;
           likeScore+= 1;
-          span2.innerHTML = likeScore + ` <button class="btn--work"><i class="fas fa-heart"></i></button>`;
+          span2.innerHTML = likeScore + ` <button role="button" aria-label="Aimer" class="btn--work"><i aria-hidden="true" class="fas fa-heart"></i></button>`;
           span2.style.fontWeight = '700';
           span2.style.color = '#d3573c';
         } else if (clicked === true) {
           clicked = !clicked;
           likeScore-= 1;
-          span2.innerHTML = likeScore + ` <button class="btn--work"><i class="fas fa-heart"></i></button>`;
+          span2.innerHTML = likeScore + ` <button role="button" aria-label="Aimer" class="btn--work"><i aria-hidden="true" class="fas fa-heart"></i></button>`;
           span2.style.fontWeight = '';
           span2.style.color = '';
         }
