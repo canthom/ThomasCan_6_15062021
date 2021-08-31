@@ -1,4 +1,5 @@
 import{Photographer} from './class/Photographer.js';
+import { filter } from './functions/filter.js';
 
 // URL
 const url = new URL(window.location);
@@ -11,19 +12,21 @@ fetch('FishEyeData.json').then( (data) => {
 }).then( (result) => {
   let photographersList = result.photographers;
 
+  let tagsList = [];
+  
+  for (let photographerData of photographersList) {
+    photographerData.tags.forEach(element => {
+      tagsList.push(element);
+    });
+  }
+
   if (tag) {
     photographersList = result.photographers.filter(photographerData => photographerData.tags.includes(tag));
   }
 
-  let tagsList = [];
-
   for (let photographerData of photographersList) {
-    const photographer = new Photographer(photographerData.id, photographerData.portrait, photographerData.name, photographerData.city, photographerData.country, photographerData.tagline, photographerData.price, photographerData.tags);
+    const photographer = new Photographer(photographerData.id, photographerData.portrait, photographerData.name, photographerData.city, photographerData.country, photographerData.tagline, photographerData.price, photographerData.tags, (tag) => {filter(result.photographers, tag)});
     photographer.renderHomepage();
-
-    photographerData.tags.forEach(element => {
-      tagsList.push(element);
-    });
   }
   
   // Tag Nav
@@ -54,6 +57,11 @@ fetch('FishEyeData.json').then( (data) => {
       liTag.style.color = '#000';
       liTag.setAttribute('aria-current', 'true');
     }
+
+    liTag.addEventListener('click', function(e) {
+      e.preventDefault();
+      filter(result.photographers, element);
+    });
   });
 
   const btnToTop = document.getElementById('btnToTop');

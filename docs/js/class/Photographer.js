@@ -1,13 +1,14 @@
 import{Contact} from '../class/Contact.js';
 
 class Photographer {
-  constructor(id, portrait, name, city, country, tagline, price, tags){
+  constructor(id, portrait, name, city, country, tagline, price, tags, handleTagClick){
     this.id = id;
     this.portrait = portrait;
     this.name = name;
     this.city = city;
     this.country = country;
     this.tagline = tagline; 
+    this.handleTagClick = handleTagClick;
     this.price = price;
     this.tags = tags;
   }
@@ -72,6 +73,11 @@ class Photographer {
           li.style.color = '#000';
           li.setAttribute('aria-current', 'true');
         }
+
+        liLink.addEventListener('click', (e) => {
+          e.preventDefault();
+          this.handleTagClick(element);
+        });
       });
 
       // Append 

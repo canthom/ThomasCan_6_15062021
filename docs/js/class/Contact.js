@@ -173,6 +173,9 @@ class Contact {
       }
     
       if (!(hasError === 1)) {
+        // AJOUT DU CONSOLE.LOG
+        console.log(`name="${firstName.value} ${lastName.value}" mail="${email.value}" message="${message.value}"`);
+        //
         const modalCont = document.querySelector('.modal-container');
         modalCont.style.display = "none";
         document.forms[0].reset();
